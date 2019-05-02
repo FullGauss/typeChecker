@@ -71,6 +71,14 @@ function isEmpty(variable){
                 emptyChecker = false;
             }
             break;
+        case "[object Function]":
+            if (functBody(variable)===""){
+                emptyChecker = true;
+            }
+            else {
+                emptyChecker = false;
+            }
+            break;
         default:
             emptyChecker = false;
             break;
@@ -85,4 +93,11 @@ function objToString(obj) {
         }
     }
     return str;
+}
+function functBody(funct){
+    var functText, functBody;
+    functText = Function.prototype.toString.call(funct);
+    functBody = functText.slice(
+        functText.indexOf("{")+1,functText.lastIndexOf("}"));
+    return functBody;
 }

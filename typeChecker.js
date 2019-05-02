@@ -1,4 +1,5 @@
 "use strict"
+
 /**
  * @function isFunction - Checking whether a variable is a function
  * @param {function} funct - Variable to check
@@ -39,4 +40,32 @@ function isNumber(num){
 function isString(str){
     return Object.prototype.toString.call(str)=="[object String]";
 }
-
+function isEmpty(variable){
+    var emptyChecker;
+    switch (Object.prototype.toString.call(variable)){
+        case "[object Null]":
+        case "[object Undefined]":
+            emptyChecker = true;
+            break;
+        case "[object String]":
+            if (String(variable)===String("")){
+                emptyChecker = true;
+            }
+            else {
+                emptyChecker = false;
+            }
+            break;
+        case "[object Array]":
+            if (String(variable)===String([])){
+                emptyChecker = true;
+            }
+            else {
+                emptyChecker = false;
+            }
+            break;
+        default:
+            emptyChecker = false;
+            break;
+    }
+    return emptyChecker;
+}

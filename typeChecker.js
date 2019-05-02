@@ -63,9 +63,26 @@ function isEmpty(variable){
                 emptyChecker = false;
             }
             break;
+        case "[object Object]":
+            if (objToString(variable)===""){
+                emptyChecker = true;
+            }
+            else {
+                emptyChecker = false;
+            }
+            break;
         default:
             emptyChecker = false;
             break;
     }
     return emptyChecker;
+}
+function objToString(obj) {
+    var str = '';
+    for (var prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+            str += prop + ':' + obj[prop] + '\n';
+        }
+    }
+    return str;
 }

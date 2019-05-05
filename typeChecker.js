@@ -40,6 +40,11 @@ function isNumber(num){
 function isString(str){
     return Object.prototype.toString.call(str)=="[object String]";
 }
+/**
+ * @function isEmpty - Checking whether a variable is empty
+ * @param {function} variable - Variable to check
+ * @returns {boolean} - Returns true if the variable is empty
+ */
 function isEmpty(variable){
     var emptyChecker;
     switch (Object.prototype.toString.call(variable)){
@@ -85,6 +90,11 @@ function isEmpty(variable){
     }
     return emptyChecker;
 }
+/**
+ * @function objToString - Converting object to string format
+ * @param {object} obj - Object to convert
+ * @returns {string} - Returns object's body in string type
+ */
 function objToString(obj) {
     var str = '';
     for (var prop in obj) {
@@ -94,6 +104,11 @@ function objToString(obj) {
     }
     return str;
 }
+/**
+ * @function functBody - Calls the function code in string format, leaving only the function body
+ * @param {function} funct - The function whose body you want to get
+ * @returns {string} - Returns function's body in string type
+ */
 function functBody(funct){
     var functText, functBody;
     functText = Function.prototype.toString.call(funct);

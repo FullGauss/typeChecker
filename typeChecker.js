@@ -116,3 +116,12 @@ function functBody(funct){
         functText.indexOf("{")+1,functText.lastIndexOf("}"));
     return functBody;
 }
+function extendClass(parent, child){
+    if((isObject(parent) && isObject(child))){
+        for (var prop in parent){
+            if(parent.hasOwnProperty[prop] && !child[prop]){
+                child[prop] = parent[prop];
+            }
+        }
+    }
+}
